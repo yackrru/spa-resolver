@@ -31,7 +31,16 @@ type Builder interface {
 	// When using spa-resolver, a SinglePage file is returned for http access
 	// other than any configuration paths, including static file settings.
 	DefineSinglePage(page *SinglePage) Builder
+
+	config() *SpaConfig
 }
+
+// Globalize makes SpaConfig global scope.
+func Globalize(b Builder) {
+	global = b.config()
+}
+
+var global *SpaConfig
 
 // SpaConfig implements Builder and should not be generated directly externally,
 // but with NewSpaConfig which returns a Builder interface.
@@ -46,8 +55,6 @@ type SpaConfig struct {
 }
 
 var _ Builder = new(SpaConfig)
-
-var global *SpaConfig
 
 // Resource is the setting of static resources map.
 // For Dir, specify the directory where the file is actually located,
@@ -74,12 +81,12 @@ func NewSpaConfig(mux *http.ServeMux) Builder {
 }
 
 func (c *SpaConfig) Build() {
-	global = c
+	Globalize(c)
 
 	if c.Mux == nil {
-		http.HandleFunc("/", handleSpa)
+		http.HandleFunc("/", HandleSpa)
 	} else {
-		c.Mux.HandleFunc("/", handleSpa)
+		c.Mux.HandleFunc("/", HandleSpa)
 	}
 }
 
@@ -112,11 +119,15 @@ func (c *SpaConfig) DefineSinglePage(page *SinglePage) Builder {
 	return c
 }
 
+func (c *SpaConfig) config() *SpaConfig {
+	return c
+}
+
 func (p *SinglePage) String() string {
 	return p.Dir + "/" + p.File
 }
 
-func handleSpa(w http.ResponseWriter, r *http.Request) {
+func HandleSpa(w http.ResponseWriter, r *http.Request) {
 	config := global
 	uri := r.URL.Path
 
