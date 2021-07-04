@@ -1,4 +1,5 @@
 # SPA Resolver
+[![CircleCI](https://circleci.com/gh/ttksm/spa-resolver/tree/main.svg?style=svg)](https://circleci.com/gh/ttksm/spa-resolver/tree/main)
 
 Go library for resolving single page application paths.
 
