@@ -37,12 +37,12 @@ type Builder interface {
 // but with NewSpaConfig which returns a Builder interface.
 type SpaConfig struct {
 	// Paths of static files.
-	Resources  []Resource
+	Resources []Resource
 
 	SinglePage SinglePage
 
 	// Mux is allowed to take nil.
-	Mux        *http.ServeMux
+	Mux *http.ServeMux
 }
 
 var _ Builder = new(SpaConfig)
