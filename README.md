@@ -85,6 +85,54 @@ func main() {
 }
 ```
 
+### (c) using [gorilla/mux](https://github.com/gorilla/mux)
+- In this case, define the path on outside of resolver package without calling `Build()`.
+- Note that the "/" setting must be last.
+
+```go
+func main() {
+    r := mux.NewRouter()
+    currentDir, _ := os.Getwd()
+ 
+    restRouting := map[string]string{
+        "/foo": "Foo!",
+        "/bar": "Bar!",
+    }
+    for k, v := range restRouting {
+        path := k
+        body := v
+        r.Path(path).HandlerFunc(func(writer http.ResponseWriter, request *http.Request) {
+            fmt.Fprintf(writer, body)
+        })
+    }
+
+    config := resolver.NewSpaConfig(nil)
+
+    resources := []resolver.Resource{
+        {
+            Dir:  currentDir + "/testdata/static",
+            Path: "/static",
+        },
+        {
+            Dir:  currentDir + "/testdata/assets",
+            Path: "/assets",
+        },
+    }
+    config.DefineResources(resources...)
+
+    sp := &resolver.SinglePage{
+        Dir:  currentDir + "/testdata",
+        File: "index.html",
+    }
+    config.DefineSinglePage(sp)
+
+    resolver.Globalize(config)
+    r.PathPrefix("/").HandlerFunc(resolver.HandleSpa)
+    
+    http.ListenAndServe("127.0.0.1:8989", r)
+}
+```
+
 ## License
 
 MIT License
