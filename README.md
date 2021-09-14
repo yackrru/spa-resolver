@@ -14,6 +14,11 @@ This library makes it easy to control:
 - Can easily map the http path to the directory where static files such as JavaScript and CSS are located.
   - If the requested file does not exist, it will return a 404 http status code.
 
+## Install
+```bash
+go get -u github.com/ttksm/spa-resolver
+```
+
 ## Examples
 
 ### (a) mux
@@ -131,7 +136,7 @@ func main() {
     resolver.Globalize(config)
     r.PathPrefix("/").HandlerFunc(resolver.HandleSpa)
     
-    http.ListenAndServe("127.0.0.1:8989", r)
+    http.ListenAndServe("127.0.0.1:8080", r)
 }
 ```
 
