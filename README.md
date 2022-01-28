@@ -1,5 +1,5 @@
 # SPA Resolver
-[![CircleCI](https://circleci.com/gh/ttksm/spa-resolver/tree/main.svg?style=svg)](https://circleci.com/gh/ttksm/spa-resolver/tree/main)
+[![CircleCI](https://circleci.com/gh/yackrru/spa-resolver/tree/main.svg?style=svg)](https://circleci.com/gh/yackrru/spa-resolver/tree/main)
 [![CodeQL](https://github.com/ttksm/spa-resolver/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/ttksm/spa-resolver/actions/workflows/codeql-analysis.yml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/ttksm/spa-resolver)](https://goreportcard.com/report/github.com/ttksm/spa-resolver)
 [![Go Reference](https://pkg.go.dev/badge/github.com/ttksm/spa-resolver.svg)](https://pkg.go.dev/github.com/ttksm/spa-resolver)
@@ -12,7 +12,7 @@ This library makes it easy to control:
 - All accesses other than the explicitly set path will return index.html.
   - The `index.html` as the single page of SPA can be set in any directory and any file name.
 - Can easily map the http path to the directory where static files such as JavaScript and CSS are located.
-  - If the requested file does not exist, it will return a 404 http status code.
+  - If the requested file does not exist, it will return 404 http status code.
 
 ## Install
 ```bash

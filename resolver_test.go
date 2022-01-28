@@ -3,7 +3,7 @@ package resolver_test
 import (
 	"fmt"
 	"github.com/stretchr/testify/assert"
-	resolver "github.com/ttksm/spa-resolver"
+	resolver "github.com/yackrru/spa-resolver"
 	"io/ioutil"
 	"net/http"
 	"net/http/httptest"

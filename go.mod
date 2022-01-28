@@ -1,4 +1,4 @@
-module github.com/ttksm/spa-resolver
+module github.com/yackrru/spa-resolver
 
 go 1.16
 
