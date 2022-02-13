@@ -1,8 +1,8 @@
 # SPA Resolver
 [![CircleCI](https://circleci.com/gh/yackrru/spa-resolver/tree/main.svg?style=svg)](https://circleci.com/gh/yackrru/spa-resolver/tree/main)
-[![CodeQL](https://github.com/ttksm/spa-resolver/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/ttksm/spa-resolver/actions/workflows/codeql-analysis.yml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/ttksm/spa-resolver)](https://goreportcard.com/report/github.com/ttksm/spa-resolver)
-[![Go Reference](https://pkg.go.dev/badge/github.com/ttksm/spa-resolver.svg)](https://pkg.go.dev/github.com/ttksm/spa-resolver)
+[![CodeQL](https://github.com/yackrru/spa-resolver/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/yackrru/spa-resolver/actions/workflows/codeql-analysis.yml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/yackrru/spa-resolver)](https://goreportcard.com/report/github.com/yackrru/spa-resolver)
+[![Go Reference](https://pkg.go.dev/badge/github.com/yackrru/spa-resolver.svg)](https://pkg.go.dev/github.com/yackrru/spa-resolver)
 
 Go library for resolving single page application paths.
 
@@ -16,7 +16,7 @@ This library makes it easy to control:
 
 ## Install
 ```bash
-go get -u github.com/ttksm/spa-resolver
+go get -u github.com/yackrru/spa-resolver
 ```
 
 ## Examples
